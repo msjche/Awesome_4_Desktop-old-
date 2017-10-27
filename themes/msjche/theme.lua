@@ -317,9 +317,9 @@ function theme.at_screen_connect(s)
 
     -- Tag names and layouts
     --awful.tag(awful.util.tagnames, s, awful.layout.layouts)
-	local names = { "WEB", "PAC", "NEW", "IRC", "MUS", "PIR", "MOV", "GAM", "MIS" }
+	local names = { "WEB", "PAC", "EMAIL", "NEW", "IRC", "MUS", "PIR", "MOV", "GAM", "MIS" }
 	local l = awful.layout.suit
-	local layouts = { l.max, l.fair.horizontal, l.tile, l.corner.se, l.tile.bottom, l.corner.se, l.magnifier, l.floating, l.floating, }
+	local layouts = { l.max, l.fair.horizontal, l.max, l.tile, l.corner.se, l.tile.bottom, l.corner.se, l.magnifier, l.floating, l.floating, }
 	awful.tag(names, s, layouts)
 
     -- Create a promptbox for each screen
