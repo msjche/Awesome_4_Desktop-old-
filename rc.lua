@@ -220,6 +220,7 @@ globalkeys = awful.util.table.join(
 	awful.key({ modkey }, "e", function () awful.util.spawn( "thunar" ) end),
 
 	awful.key({ modkey }, "c", function () awful.util.spawn( "chromium" ) end),
+	awful.key({ modkey }, "i", function () awful.util.spawn( "chromium -incognito" ) end),
 	awful.key({ modkey }, "s", function () awful.util.spawn( "steam" ) end),
 	awful.key({ modkey, "Shift" }, "f", function () awful.util.spawn( browser ) end),
 	awful.key({ modkey }, "b", function () awful.util.spawn( "qutebrowser --backend webengine" ) end),
@@ -461,7 +462,7 @@ globalkeys = awful.util.table.join(
 
     -- Default
     -- Menubar
-    awful.key({ altkey }, "m", function() menubar.show() end,
+    awful.key({ modkey }, "a", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"}),
     
     -- dmenu
