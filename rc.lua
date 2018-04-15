@@ -218,11 +218,10 @@ globalkeys = awful.util.table.join(
 	awful.key({ altkey }, "x", function () awful.util.spawn( "pkill mpv" ) end),
 	awful.key({ altkey }, "x", function () awful.util.spawn( "pkill youtube-viewer" ) end),
 	awful.key({ modkey }, "e", function () awful.util.spawn( "thunar" ) end),
-
 	awful.key({ modkey }, "c", function () awful.util.spawn( "chromium" ) end),
 	awful.key({ modkey }, "i", function () awful.util.spawn( "chromium -incognito" ) end),
 	awful.key({ modkey }, "s", function () awful.util.spawn( "steam" ) end),
-	awful.key({ modkey, "Shift" }, "f", function () awful.util.spawn( browser ) end),
+	awful.key({ modkey, "Shift" }, "b", function () awful.util.spawn( browser ) end),
 	awful.key({ modkey }, "b", function () awful.util.spawn( "qutebrowser --backend webengine" ) end),
 
 
@@ -452,9 +451,9 @@ globalkeys = awful.util.table.join(
         end),
 
     -- Copy primary to clipboard (terminals to gtk)
-    awful.key({ modkey, "Shift" }, "c", function () awful.spawn("xsel | xsel -i -b") end),
+    awful.key({ altkey, "Shift" }, "c", function () awful.spawn("xsel | xsel -i -b") end),
     -- Copy clipboard to primary (gtk to terminals)
-    awful.key({ modkey, "Shift" }, "v", function () awful.spawn("xsel -b | xsel") end),
+    awful.key({ altkey, "Shift" }, "v", function () awful.spawn("xsel -b | xsel") end),
 
     -- User programs
 --    awful.key({ modkey }, "q", function () awful.spawn(browser) end),
