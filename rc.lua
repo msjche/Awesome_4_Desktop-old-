@@ -223,6 +223,7 @@ globalkeys = awful.util.table.join(
 	awful.key({ modkey }, "s", function () awful.util.spawn( "steam" ) end),
 	awful.key({ modkey, "Shift" }, "b", function () awful.util.spawn( browser ) end),
 	awful.key({ modkey }, "b", function () awful.util.spawn( "qutebrowser --backend webengine" ) end),
+	awful.key({ modkey, "Control" }, "k", function () awful.util.spawn( "konsole" ) end),
 
 
     -- Hotkeys

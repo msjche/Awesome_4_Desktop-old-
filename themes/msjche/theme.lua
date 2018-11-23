@@ -15,12 +15,12 @@ local awesome, client = awesome, client
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/msjche"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "Tamzen 12"
-theme.taglist_font 								= "Xirod 12"
+theme.font                                      = "Tamzen 13"
+theme.taglist_font 				= "Xirod 13"
 theme.fg_normal                                 = "#BBBBBB"
 theme.fg_focus                                  = "#78A4FF"
---theme.bg_normal                                 = "#11111100"
-theme.bg_normal                                 = "#111111"
+--theme.bg_normal                                 = "#111111"
+theme.bg_normal                                 = "#11111199"
 theme.bg_focus                                  = "#111111"
 theme.fg_urgent                                 = "#000000"
 theme.bg_urgent                                 = "#FFFFFF"
@@ -237,7 +237,7 @@ theme.mpd = lain.widget.mpd({
 -- ALSA volume bar
 local volicon = wibox.widget.imagebox(theme.vol)
 theme.volume = lain.widget.alsabar({
-    width = 59, border_width = 0, ticks = true, ticks_size = 6,
+    width = 144, border_width = 0, ticks = true, ticks_size = 13,
     notification_preset = { font = theme.font },
     --togglechannel = "IEC958,3",
     settings = function()
@@ -319,7 +319,7 @@ function theme.at_screen_connect(s)
     --awful.tag(awful.util.tagnames, s, awful.layout.layouts)
 	local names = { "1-WEB", "2-PAC", "3-NEW", "4-IRC", "5-MUS", "6-PIR", "7-MOV", "8-GAM", "9-MIS" }
 	local l = awful.layout.suit
-	local layouts = { l.floating, l.fair.horizontal, l.spiral, l.corner.se, l.tile.bottom, l.corner.se, l.magnifier, l.floating, l.floating, }
+	local layouts = { l.floating, l.floating, l.spiral, l.corner.se, l.tile.bottom, l.corner.se, l.magnifier, l.floating, l.floating, }
 	awful.tag(names, s, layouts)
 
     -- Create a promptbox for each screen
@@ -340,7 +340,7 @@ function theme.at_screen_connect(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the horizontal wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 22, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 28, bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -379,7 +379,7 @@ function theme.at_screen_connect(s)
     }
 
 	-- Create the vertical wibox
-    s.myverticalwibox = awful.wibar({ position = "left", screen = s, width = 85, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.myverticalwibox = awful.wibar({ position = "left", screen = s, width = 100, bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.myverticalwibox:setup {
