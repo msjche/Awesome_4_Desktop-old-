@@ -19,4 +19,5 @@ run "nm-applet"
 pkill conky
 
 sleep 3
-run "conky -c /home/msjche/.config/awesome/conky/conkyrc"
+#run "conky -c /home/msjche/.config/awesome/conky/conkyrc"
+run "conky -c /home/msjche/.config/awesome/conky/conkyrc.lua"
