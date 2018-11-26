@@ -136,13 +136,4 @@ $color6${upspeedgraph eno1 45,170 00ff00 00ff00}$color
 ${color2}Down: ${alignr}${color red}${downspeed eno1}/s$color
 ${color2}Total: ${alignr}${color red}${totaldown eno1}$color
 $color6${downspeedgraph eno1 45,170 ff0000 ff0000}
-#${font Droid Sans:size=10:style=bold}${color1}${color2}VPN: ${font Droid Sans:size=10:style=bold}${color5}${if_up tun0}UP${else}${color6}Down$endif$font$color
-#${font Droid Sans:size=8:style=bold}${color1}Lan IP: ${alignr}$color3${addr eno1} 
-#${font Droid Sans:size=8:style=bold}${color1}Ext IP: ${alignr}${color3}NOPE#${alignr}$color3${execi 600 wget -q -O /dev/stdout http://checkip.dyndns.org/ | cut -d : -f 2- | cut -d \< -f -1} 
-##${font Droid Sans:size=8:style=bold}${alignr}$color3${execi 600 wget -q -O /dev/stdout https://www.dnsleaktest.com/ | grep from | grep -o '<p>.*<img' | grep -o '>.*<' | grep -oEi '[a-zA-Z0-9 ,]+'}
-#${voffset 10}             
-#${color1}${font Droid Sans:size=8:style=bold}Up: ${alignr}${font Droid Sans:size=8:style=normal}$color2${upspeed eno1} / ${totalup eno1}
-#${upspeedgraph eno1 40,118 4B1B0C FF5C2B 1280KiB -l}
-#${color1}${font Droid Sans:size=8:style=bold}Down: ${alignr}${font Droid Sans:size=8:style=normal}$color2${downspeed eno1} / ${totaldown eno1}
-#${downspeedgraph eno1 40,118 324D23 77B753 1280KiB -l}
 ]];
