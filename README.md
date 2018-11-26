@@ -7,3 +7,4 @@ Installation:
 	rm -r Awesome_4_Desktop
 
 ![Alt text](screenshot.png?raw=true "Title")
+![Alt text](dirty.png?raw=true "Title")
