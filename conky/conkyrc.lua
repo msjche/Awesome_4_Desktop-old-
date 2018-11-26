@@ -71,13 +71,13 @@ conky.config = {
 
 conky.text = [[
 
-${font Droid Sans:size=8:style=normal}${color1}$kernel
+${font Droid Sans:size=9:style=normal}${color4}$kernel
 ${font Droid Sans:size=9:style=normal}${color1}Uptime: $alignr${color3}${color3}$uptime
-${image /home/msjche/.config/awesome/conky/pacman.png -p 10,58 -s 60x60 }
+${image /home/msjche/.config/awesome/conky/pacman.png -p 10,60 -s 60x60 }
 $alignr${font Droid Sans Mono:size=8}${color2}Pacman: 	$color1${font Droid Sans Mono:size=8:bold}${execp cat /tmp/off.updates | wc -l}
 $alignr${font Droid Sans Mono:size=8}${color2}AUR:    	$color1${font Droid Sans Mono:size=8:bold}${execp cat /tmp/aur.updates | wc -l}$color
 # NVIDIA
-${image /home/msjche/.config/awesome/conky/NVIDIA.png -p 1,113 -s 73x73 }
+${image /home/msjche/.config/awesome/conky/NVIDIA.png -p 1,115 -s 73x73 }
 $alignr${font Droid Sans Mono:size=8}${color2}GPU: $color ${nvidia gpuutil}%
 $alignr${font Droid Sans Mono:size=8}${color2}RAM: $color ${nvidia membwutil}%
 $alignr${font Droid Sans Mono:size=8}${color2}VIDEO: $color ${nvidia videoutil}%
@@ -98,7 +98,7 @@ ${font Droid Sans:size=8:style=normal}${color3}${top name 4}${alignr}${top cpu 4
 ${font Droid Sans:size=8:style=normal}${color3}${top name 5}${alignr}${top cpu 5}%
 
 #Showing memory part with TOP 5
-${voffset 30}
+${voffset 28}
 ${offset 65}${font Droid Sans:size=14:style=bold}${color5}MEM
 ${voffset 1}
 ${font Droid Sans:bold:size=8:style=normal}${color4}${top_mem name 1}${alignr}${top_mem mem_res 1}
