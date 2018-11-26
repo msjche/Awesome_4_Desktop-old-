@@ -108,17 +108,18 @@ ${font Droid Sans:size=8:style=normal}${color3}${top_mem name 4}${alignr}${top_m
 ${font Droid Sans:size=8:style=normal}${color3}${top_mem name 4}${alignr}${top_mem mem_res 5}
 
 # Showing disk partitions: boot, root, home
-${voffset 47}
-${offset 70}${font Droid Sans:size=12:style=bold}${color5}DISKS
-${voffset 20}
+${voffset 57}
+${offset 95}${font Droid Sans:size=12:style=bold}${color5}DISKS
+${voffset 40}
 ${diskiograph 20,170 666666 666666}${voffset -20}
 ${voffset 2}
 ${font Droid Sans:size=8:}${color1}Boot Free: ${alignr}$color3${font Droid Sans:size=8:style=normal}${fs_free /boot}
 ${font Droid Sans:size=8:}${color1}Root Free: ${alignr}$color3${font Droid Sans:size=8:style=normal}${fs_free /}
 ${font Droid Sans:size=8:}${color1}Home Free: ${alignr}$color3${font Droid Sans:size=8:style=normal}${fs_free /home}
+${font Droid Sans:size=8:}${color1}Media Free: ${alignr}$color3${font Droid Sans:size=8:style=normal}${fs_free /media/Data}
 
 # Network 
-${voffset 48}
+${voffset 43}
 ${offset 70}${font Droid Sans:size=14:style=bold}${color5}Ethernet
 ${voffset 15}
 ${font Droid Sans:size=8:style=bold}${color1}VPN: $alignr${font Droid Sans:size=9:style=bold}${color5}${if_up tun0}UP${else}${color6}Down$endif$color
