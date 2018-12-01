@@ -317,10 +317,20 @@ globalkeys = awful.util.table.join(
             end
         end
     end),
-	-- Show/Hide Vertical Wibox
-    awful.key({ altkey }, "v", function ()
+	-- Show/Hide Left Vertical Wibox
+    awful.key({ altkey }, "l", function ()
         for s in screen do
             s.myverticalwibox.visible = not s.myverticalwibox.visible
+            if s.mybottomwibox then
+                s.mybottomwibox.visible = not s.mybottomwibox.visible
+            end
+        end
+    end),
+
+	-- Show/Hide Right Vertical Wibox
+    awful.key({ altkey }, "r", function ()
+        for s in screen do
+            s.myverticalwiboxright.visible = not s.myverticalwiboxright.visible
             if s.mybottomwibox then
                 s.mybottomwibox.visible = not s.mybottomwibox.visible
             end

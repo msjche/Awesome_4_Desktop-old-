@@ -1,0 +1,93 @@
+###################### # - Conky settings - #
+######################
+update_interval 1
+net_avg_samples 2
+cpu_avg_samples 2
+
+double_buffer yes
+no_buffers yes
+text_buffer_size 2048
+
+alignment top_right
+gap_y 365
+gap_x 10
+border_inner_margin 8
+
+format_human_readable
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes
+xftfont Droid Sans:size=11
+override_utf8_locale yes
+text_buffer_size 2048
+
+#############################
+# - Window specifications - #
+#############################
+own_window yes
+own_window_type desktop
+own_window_transparent true
+own_window_argb_visual true
+own_window_class conky-semi
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+own_window_colour 000000
+
+draw_outline no
+draw_borders no
+
+maximum_width 468
+maximum_height 700
+
+default_bar_size i300 12
+draw_graph_borders no
+draw_bar_borders no
+
+default_color FFFFFF
+color1 DDDDDD
+color2 AAAAAA
+color3 888888
+# Arch Blue
+color4 1793D0
+color5 8FEB8F
+color6 F45F45
+
+TEXT
+${color4}${font xirod:Bold:size=10}Google Calendar ${hr 2}$font$color
+${voffset -10}${font Droid Sans Mono:size=7:bold}$color2${execi 300 gcalcli --nocolor --lineart ascii --conky calw}
+${voffset -10}${font Droid Sans Mono:size=9:bold}$color3${execi 300 gcalcli --nocolor --lineart ascii --conky agenda}
+
+${color4}${font xirod:Bold:size=10}News ${hr 2}$font$color
+${color2}${font Droid Sans:size=9}Zerohedge Latest Headlines:
+${color1}${font Droid Sans:size=9}${execi 300 /home/msjche/.config/awesome/conky/conky-rss.sh http://feeds.feedburner.com/zerohedge/feed 5 2}
+
+${color2}${font Droid Sans:size=9}Fox News Latest Headlines:
+${color1}${font Droid Sans:size=9}${execi 300 /home/msjche/.config/awesome/conky/conky-rss.sh http://feeds.foxnews.com/foxnews/latest 5 2}
+
+${color2}${font Droid Sans:size=9}Arch Linux News:
+${color1}${font Droid Sans:size=9}${execi 300 /home/msjche/.config/awesome/conky/conky-rss.sh https://www.archlinux.org/feeds/news/ 5 2}
+
+# TCP & UDP     
+${font xirod:Bold:size=10}${color5}CONNECTIONS ${hr 2}$font$color
+${font Droid Sans:Bold:size=9}Inbound Connections:  ${tcp_portmon 1 32767 count}  ${alignr} Local Service / Port
+   ${color2}${font Droid Sans:size=9}${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
+   ${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
+   ${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
+   ${tcp_portmon 1 32767 rhost 3} ${alignr} ${tcp_portmon 1 32767 lservice 3}
+   ${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
+   ${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 5}   
+${color1}${font Droid Sans:Bold:size=9}Outbound Connections:  ${tcp_portmon 32768 61000 count}  ${alignr} Remote Service / Port
+   ${color2}${font Droid Sans:size=9}${tcp_portmon 32768 61000 rhost 0} ${alignr} ${tcp_portmon 32768 61000 rservice 0}
+   ${tcp_portmon 32768 61000 rhost 1} ${alignr} ${tcp_portmon 32768 61000 rservice 1}
+   ${tcp_portmon 32768 61000 rhost 2} ${alignr} ${tcp_portmon 32768 61000 rservice 2}
+   ${tcp_portmon 32768 61000 rhost 3} ${alignr} ${tcp_portmon 32768 61000 rservice 3}
+   ${tcp_portmon 32768 61000 rhost 4} ${alignr} ${tcp_portmon 32768 61000 rservice 4}
+   ${tcp_portmon 32768 61000 rhost 5} ${alignr} ${tcp_portmon 32768 61000 rservice 5}
+   ${tcp_portmon 32768 61000 rhost 6} ${alignr} ${tcp_portmon 32768 61000 rservice 6}
+   ${tcp_portmon 32768 61000 rhost 7} ${alignr} ${tcp_portmon 32768 61000 rservice 7}
+   ${tcp_portmon 32768 61000 rhost 8} ${alignr} ${tcp_portmon 32768 61000 rservice 8}
+
+${color6}${font xirod:size=10}PACMAN LOG ${hr 2}
+${color2}${font Droid Sans:size=9}${execi 30 tail -n10 /var/log/pacman.log}

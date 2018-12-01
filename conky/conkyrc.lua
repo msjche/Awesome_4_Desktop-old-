@@ -71,17 +71,17 @@ conky.config = {
 
 conky.text = [[
 
-${font Droid Sans:size=9:style=normal}${color4}$kernel
-${font Droid Sans:size=9:style=normal}${color1}Uptime: $alignr${color3}${color3}$uptime
+$color2${font Droid Sans:size=8:style=normal}Kernel: $alignr${font Droid Sans:size=9:style=bold}${color4}$kernel
+${font Droid Sans:size=8:style=normal}${color2}Uptime: $alignr${font Droid Sans:size=9:style=bold}${color1}$uptime
 ${image /home/msjche/.config/awesome/conky/pacman.png -p 10,60 -s 60x60 }
-$alignr${font Droid Sans Mono:size=8}${color2}Pacman: 	$color1${font Droid Sans Mono:size=8:bold}${execp cat /tmp/off.updates | wc -l}
-$alignr${font Droid Sans Mono:size=8}${color2}AUR:    	$color1${font Droid Sans Mono:size=8:bold}${execp cat /tmp/aur.updates | wc -l}$color
+${goto 100}${font Droid Sans Mono:size=8}${color2}Pacman:	$alignr$color4${font Droid Sans Mono:size=8:bold}${execp cat /tmp/off.updates | wc -l}
+${goto 100}${font Droid Sans Mono:size=8}${color2}AUR:	$alignr$color4${font Droid Sans Mono:size=8:bold}${execp cat /tmp/aur.updates | wc -l}$color
 # NVIDIA
 ${image /home/msjche/.config/awesome/conky/NVIDIA.png -p 1,115 -s 73x73 }
-$alignr${font Droid Sans Mono:size=8}${color2}GPU: $color ${nvidia gpuutil}%
-$alignr${font Droid Sans Mono:size=8}${color2}RAM: $color ${nvidia membwutil}%
-$alignr${font Droid Sans Mono:size=8}${color2}VIDEO: $color ${nvidia videoutil}%
-$alignr${font Droid Sans Mono:size=8}${color2}PCIe: $color ${nvidia pcieutil}%
+${goto 100}${font Droid Sans Mono:size=8}${color2}GPU: $alignr$color${nvidia gpuutil}%
+${goto 100}${font Droid Sans Mono:size=8}${color2}RAM: $alignr$color${nvidia membwutil}%
+${goto 100}${font Droid Sans Mono:size=8}${color2}VIDEO: $alignr$color${nvidia videoutil}%
+${goto 100}${font Droid Sans Mono:size=8}${color2}PCIe: $alignr$color${nvidia pcieutil}%
 
 # Showing CPU Graph
 #${voffset 65}
@@ -113,10 +113,10 @@ ${offset 95}${font Droid Sans:size=12:style=bold}${color5}DISKS
 ${voffset 40}
 ${diskiograph 20,170 666666 666666}${voffset -20}
 ${voffset 2}
-${font Droid Sans:size=8:}${color1}Boot Free: ${alignr}$color3${font Droid Sans:size=8:style=normal}${fs_free /boot}
-${font Droid Sans:size=8:}${color1}Root Free: ${alignr}$color3${font Droid Sans:size=8:style=normal}${fs_free /}
-${font Droid Sans:size=8:}${color1}Home Free: ${alignr}$color3${font Droid Sans:size=8:style=normal}${fs_free /home}
-${font Droid Sans:size=8:}${color1}Media Free: ${alignr}$color3${font Droid Sans:size=8:style=normal}${fs_free /media/Data}
+${font Droid Sans:size=8:}${color2}Boot Free: ${alignr}$color1${font Droid Sans:size=8:style=normal}${fs_free /boot}
+${font Droid Sans:size=8:}${color2}Root Free: ${alignr}$color1${font Droid Sans:size=8:style=normal}${fs_free /}
+${font Droid Sans:size=8:}${color2}Home Free: ${alignr}$color1${font Droid Sans:size=8:style=normal}${fs_free /home}
+${font Droid Sans:size=8:}${color2}Media Free: ${alignr}$color1${font Droid Sans:size=8:style=normal}${fs_free /media/Data}
 
 # Network 
 ${voffset 43}

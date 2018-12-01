@@ -1,0 +1,185 @@
+######################
+# - Conky settings - #
+######################
+update_interval 1
+total_run_times 0
+net_avg_samples 1
+cpu_avg_samples 2
+
+imlib_cache_size 0
+double_buffer yes
+no_buffers yes
+
+format_human_readable
+
+#####################
+# - Text settings - #
+#####################
+use_xft yes
+xftfont Droid Sans:size=8
+override_utf8_locale yes
+text_buffer_size 2048
+
+#############################
+# - Window specifications - #
+#############################
+own_window_hints undecorated,below,skip_taskbar,skip_pager,sticky
+#own_window_hints undecorated,above,skip_taskbar,skip_pager,sticky
+draw_shades false
+own_window_transparent yes
+own_window yes
+own_window_type desktop
+#own_window_type override
+
+own_window_colour 000000
+own_window_argb_visual yes
+own_window_argb_value 0
+
+alignment top_left
+gap_y 130
+gap_x 0 
+border_inner_margin 2
+draw_outline no
+draw_borders no
+own_window_class Conky
+#draw_graph_borders no
+
+maximum_width 95
+minimum_height 2500
+
+#default_graph_width=70
+#default_graph_height=33
+#default_bar_width=70
+#default_bar_height=12
+default_bar_size 95 13
+default_graph_size 79 33 
+
+default_color DEDEDE
+color1 1793D0
+color2 8C8C8C
+color3 ABABAB
+color4 C9C9C9
+color5 DEDEDE
+color6 565656
+
+TEXT
+# SYS
+#${voffset 80}
+${font Droid Sans Mono:size=8}${color2}Uptime:${font Droid Sans Mono:size=7}$font
+$alignc$color$uptime
+#User(s) $alignr $user_names
+#Active Consoles $alignr $user_terms
+${font Droid Sans Mono:size=7}${color1}$kernel$machine
+#NVidia Optimus: $alignr${execi 60 cat /proc/acpi/bbswitch | awk '{print $2}'}
+#AC Status $alignr$acpiacadapter ${battery BAT1}
+#AC Status $alignr${battery BAT1}
+#Battery Temp $alignr$acpitemp°C
+${color2}Temp: $color${exec sensors | grep Core\ 3 | awk '{print $3}'}
+
+
+${image /home/msjche/.config/awesome/conky/pacman.png -p 23,60 -s 50x50 }
+${font Droid Sans Mono:size=8}${color2}Pacman: 	$alignr$color1${font Droid Sans Mono:size=8:bold}${execp cat /tmp/off.updates | wc -l}
+${font Droid Sans Mono:size=8}${color2}AUR:    	$alignr$color1${font Droid Sans Mono:size=8:bold}${execp cat /tmp/aur.updates | wc -l}$color
+
+
+# NVIDIA
+${image /home/msjche/.config/awesome/conky/NVIDIA.png -p 30,138 -s 35x35 }
+${font Droid Sans Mono:size=7}${color2}GPU: $alignr$color ${nvidia gpuutil}%
+${font Droid Sans Mono:size=7}${color2}RAM: $alignr$color ${nvidia membwutil}%
+${font Droid Sans Mono:size=7}${color2}VIDEO: $alignr$color ${nvidia videoutil}%
+${font Droid Sans Mono:size=7}${color2}PCIe: $alignr$color ${nvidia pcieutil}%
+
+
+
+# CPU
+${image /home/msjche/.config/awesome/conky/cpu.png -p 30,238 -s 35x35 }
+#${font xirod:Bold:size=14}${color1}${alignc}CPU$font$color
+${color1}${cpubar cpu1}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu2}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu3}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu4}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu5}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu6}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu7}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu8}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu9}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu10}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu11}${color}
+${voffset -13}${color6}${execbar echo 0}
+${color1}${cpubar cpu12}${color}
+${voffset -13}${color6}${execbar echo 0}
+${font Droid Sans:size=6}
+${color2}Core 1${alignr}Core 2
+$color6${cpugraph cpu1 20,45 1793D0 1793D0} ${alignr}${cpugraph cpu2 20,45 1793D0 1793D0}$color
+${color2}Core 3${alignr}Core 4
+$color6${cpugraph cpu3 20,45 1793D0 1793D0} ${alignr}${cpugraph cpu4 20,45 1793D0 1793D0}$color
+${color2}Core 5${alignr}Core 6
+$color6${cpugraph cpu4 20,45 1793D0 1793D0} ${alignr}${cpugraph cpu5 20,45 1793D0 1793D0}$color
+${color2}Core 7${alignr}Core 8
+$color6${cpugraph cpu6 20,45 1793D0 1793D0} ${alignr}${cpugraph cpu7 20,45 1793D0 1793D0}$color
+${color2}Core 9${alignr}Core 10
+$color6${cpugraph cpu6 20,45 1793E0 1793D0} ${alignr}${cpugraph cpu7 20,45 1793D0 1793D0}$color
+${color2}Core 11${alignr}Core 12
+$color6${cpugraph cpu6 20,45 1793D0 1793D0} ${alignr}${cpugraph cpu7 20,45 1793D0 1793D0}$color
+
+
+# MEMORY
+${image /home/msjche/.config/awesome/conky/ram.png -p 30,728 -s 35x17 }
+#${font xirod:Bold:size=13}${color1}${alignc}MEM$color$font
+#${font Droid Sans:size=7}MEMORY
+${color2}$mem / $memmax
+${font Droid Sans:size=8}$color1$alignr$memperc %
+${color1}${membar}$color
+${voffset -15}${color6}${execbar echo 0}$color
+
+##SWAP
+#$color2$swap / $swapmax 
+#${color2}${swapbar}$color
+#${voffset -12}${color6}${execbar echo 0}
+
+## HDD
+${image /home/msjche/.config/awesome/conky/hard_drive.png -p 30,800 -s 35x35 }
+$font${color1}/dev/sda
+${font Droid Sans Mono:size=7}${color2}Read:$diskio_read
+Write:$diskio_write${color}
+
+${color2}/ $font$font$color${font Droid Sans Mono:size=7}$color1$alignr${fs_used_perc /} %$color
+${color1}${fs_bar /}$color
+${voffset -13}${color6}${execbar echo 0}
+
+${color2}/home$color${font Droid Sans Mono:size=7}$color1$alignr${fs_used_perc /home} %$color
+${color1}${fs_bar /home}$color
+${voffset -13}${color6}${execbar echo 0}
+
+${color2}Data$color${font Droid Sans Mono:size=7}$color1$alignr${fs_used_perc /media/Data} %$color
+${color1}${fs_bar /media/Data}$color
+${voffset -13}${color6}${execbar echo 0}$color
+
+
+
+## NETWORK
+${image /home/msjche/.config/awesome/conky/network.png -p 30,1015 -s 35x35 }
+#${font xirod:Bold:size=14}${color1}${alignc}NET$color$font
+${font Droid Sans:size=7}${color2}Int:$alignr${color1}$gw_iface$font
+${color2}VPN:$alignr${if_up tun0}${color1}Up${else}${color red}Down$endif$font$color
+${color2}UFW: $alignr$color1${execi 30 systemctl is-active ufw}$color
+#Public IP${alignr} NOPE;)
+${color2}Packets
+${color2}In: $color1${tcp_portmon 1 32767 count} $alignr$color2${alignr}Out: $color1${tcp_portmon 32768 61000 count}$color
+
+${color2}Up: ${alignr}${color green}${upspeed eno1}/s$color
+${color2}Total: ${alignr}${color green}${totalup eno1}$color
+$color6${upspeedgraph eno1 33,95 00ff00 00ff00}$color
+${color2}Down: ${alignr}${color red}${downspeed eno1}/s$color
+${color2}Total: ${alignr}${color red}${totaldown eno1}$color
+$color6${downspeedgraph eno1 33,95 ff0000 ff0000}

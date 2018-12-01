@@ -21,3 +21,6 @@ pkill conky
 sleep 3
 #run "conky -c /home/msjche/.config/awesome/conky/conkyrc"
 run "conky -c /home/msjche/.config/awesome/conky/conkyrc.lua"
+sleep 1
+run "conky -c /home/msjche/.config/awesome/conky/conkyrcr"
+run "conky -c /home/msjche/.config/awesome/conky/conkyrc"

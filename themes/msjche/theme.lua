@@ -389,7 +389,17 @@ function theme.at_screen_connect(s)
 			mylauncher,
         },
     }
+	-- Create the vertical wibox
+    s.myverticalwiboxright = awful.wibar({ position = "right", screen = s, width = 490, bg = theme.bg_normal, fg = theme.fg_normal })
 
+    -- Add widgets to the wibox
+    s.myverticalwiboxright:setup {
+        layout = wibox.layout.align.vertical,
+        { -- Top widgets
+            layout = wibox.layout.fixed.vertical,
+--			mylauncher,
+        },
+    }
 end
 
 return theme
