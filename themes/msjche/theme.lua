@@ -15,8 +15,8 @@ local awesome, client = awesome, client
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/msjche"
 theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "Tamzen 13"
-theme.taglist_font 				= "Xirod 13"
+theme.font                                      = "Play 14"
+theme.taglist_font 				= "Xirod 15"
 theme.fg_normal                                 = "#BBBBBB"
 theme.fg_focus                                  = "#78A4FF"
 --theme.bg_normal                                 = "#111111"
@@ -27,7 +27,7 @@ theme.bg_urgent                                 = "#FFFFFF"
 theme.border_width                              = 1
 theme.border_normal                             = "#141414"
 theme.border_focus                              = "#93B6FF"
-theme.taglist_fg_focus                          = "#FFFFFF"
+theme.taglist_fg_focus                          = "#1793D0"
 theme.taglist_bg_focus                          = "#111111"
 theme.taglist_bg_normal                         = "#111111"
 theme.titlebar_bg_normal                        = "#191919"
@@ -237,7 +237,7 @@ theme.mpd = lain.widget.mpd({
 -- ALSA volume bar
 local volicon = wibox.widget.imagebox(theme.vol)
 theme.volume = lain.widget.alsabar({
-    width = 144, border_width = 0, ticks = true, ticks_size = 13,
+    width = 164, border_width = 0, ticks = true, ticks_size = 15,
     notification_preset = { font = theme.font },
     --togglechannel = "IEC958,3",
     settings = function()
@@ -317,9 +317,9 @@ function theme.at_screen_connect(s)
 
     -- Tag names and layouts
     --awful.tag(awful.util.tagnames, s, awful.layout.layouts)
-	local names = { "1-WEB", "2-PAC", "3-NEW", "4-IRC", "5-MUS", "6-PIR", "7-MOV", "8-GAM", "9-MIS" }
+	local names = { "WEB", "PAC", "NEW", "IRC", "MUS", "PIR", "MOV", "GAM", "MIS" }
 	local l = awful.layout.suit
-	local layouts = { l.floating, l.floating, l.spiral, l.corner.se, l.tile.bottom, l.corner.se, l.magnifier, l.floating, l.floating, }
+	local layouts = { l.max, l.corner.se, l.spiral, l.corner.se, l.tile.bottom, l.corner.se, l.magnifier, l.floating, l.floating, }
 	awful.tag(names, s, layouts)
 
     -- Create a promptbox for each screen
@@ -340,7 +340,7 @@ function theme.at_screen_connect(s)
     s.mytasklist = awful.widget.tasklist(s, awful.widget.tasklist.filter.currenttags, awful.util.tasklist_buttons)
 
     -- Create the horizontal wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s, height = 28, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.mywibox = awful.wibar({ position = "top", screen = s, height = 30, bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.mywibox:setup {
@@ -352,6 +352,7 @@ function theme.at_screen_connect(s)
             first,
             bar_spr,
             s.mytaglist,
+	    mylauncher,
             bar_spr,
             first,
             s.mypromptbox,
@@ -371,7 +372,8 @@ function theme.at_screen_connect(s)
             --fsicon,
             --fswidget,
             --bar_spr,
-            volicon,
+--	    gpmdp.widget,
+	    volicon,
             volumewidget,
             bar_spr,
             mytextclock,
@@ -379,25 +381,25 @@ function theme.at_screen_connect(s)
     }
 
 	-- Create the vertical wibox
-    s.myverticalwibox = awful.wibar({ position = "left", screen = s, width = 180, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.myverticalwibox = awful.wibar({ position = "left", screen = s, width = 443, bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.myverticalwibox:setup {
         layout = wibox.layout.align.vertical,
         { -- Top widgets
             layout = wibox.layout.fixed.vertical,
-			mylauncher,
+	   -- mylauncher,
         },
     }
 	-- Create the vertical wibox
-    s.myverticalwiboxright = awful.wibar({ position = "right", screen = s, width = 490, bg = theme.bg_normal, fg = theme.fg_normal })
+    s.myverticalwiboxright = awful.wibar({ position = "right", screen = s, width = 480, bg = theme.bg_normal, fg = theme.fg_normal })
 
     -- Add widgets to the wibox
     s.myverticalwiboxright:setup {
         layout = wibox.layout.align.vertical,
         { -- Top widgets
             layout = wibox.layout.fixed.vertical,
---			mylauncher,
+--		mylauncher,
         },
     }
 end

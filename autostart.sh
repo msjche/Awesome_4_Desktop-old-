@@ -19,8 +19,8 @@ run "nm-applet"
 pkill conky
 
 sleep 3
-#run "conky -c /home/msjche/.config/awesome/conky/conkyrc"
-run "conky -c /home/msjche/.config/awesome/conky/conkyrc.lua"
+run "conky -c /home/msjche/.config/awesome/conky/pacman.lua"
+run "conky -c /home/msjche/.config/awesome/conky/system-monitor.lua"
 sleep 1
-run "conky -c /home/msjche/.config/awesome/conky/conkyrcr"
-run "conky -c /home/msjche/.config/awesome/conky/conkyrc"
+run "conky -c /home/msjche/.config/awesome/conky/events.lua"
+run "conky -c /home/msjche/.config/awesome/conky/weather.lua"

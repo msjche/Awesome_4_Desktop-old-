@@ -10,16 +10,17 @@
 local awesome, client, mouse, screen, tag = awesome, client, mouse, screen, tag
 local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, table, tostring, tonumber, type
 
-local gears         = require("gears")
-local awful         = require("awful")
-                      require("awful.autofocus")
-local wibox         = require("wibox")
-local beautiful     = require("beautiful")
-local naughty       = require("naughty")
-local lain          = require("lain")
-local menubar       = require("menubar")
-local freedesktop   = require("freedesktop")
-local hotkeys_popup = require("awful.hotkeys_popup").widget
+local gears         	= require("gears")
+local awful         	= require("awful")
+			  require("awful.autofocus")
+local wibox         	= require("wibox")
+local beautiful     	= require("beautiful")
+local naughty       	= require("naughty")
+local lain          	= require("lain")
+local menubar       	= require("menubar")
+local freedesktop   	= require("freedesktop")
+local hotkeys_popup 	= require("awful.hotkeys_popup").widget
+local gpmdp 		= require("widgets.gpmdp")
 -- }}}
 
 -- {{{ Error handling
@@ -224,6 +225,7 @@ globalkeys = awful.util.table.join(
 	awful.key({ modkey, "Shift" }, "b", function () awful.util.spawn( browser ) end),
 	awful.key({ modkey }, "b", function () awful.util.spawn( "qutebrowser --backend webengine" ) end),
 	awful.key({ modkey, "Control" }, "k", function () awful.util.spawn( "konsole" ) end),
+	awful.key({ modkey, "Control" }, "t", function () awful.util.spawn( "tor-browser-en" ) end),
 
 
     -- Hotkeys

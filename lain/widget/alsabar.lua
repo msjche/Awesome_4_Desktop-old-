@@ -34,10 +34,10 @@ local function factory(args)
     local args       = args or {}
     local timeout    = args.timeout or 5
     local settings   = args.settings or function() end
-    local width      = args.width or 80
+    local width      = args.width or 140
     local height     = args.height or 1
     local ticks      = args.ticks or false
-    local ticks_size = args.ticks_size or 7
+    local ticks_size = args.ticks_size or 13
 
     alsabar.cmd                 = args.cmd or "amixer"
     alsabar.channel             = args.channel or "Master"
