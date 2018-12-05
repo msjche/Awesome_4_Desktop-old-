@@ -24,7 +24,7 @@ conky.config = {
 	gap_y = 359,
 	minimum_width = 477, 
 	maximum_width = 477,
-	minimum_height = 700,
+	minimum_height = 900,
 
 	own_window = true,
 	own_window_type = 'desktop',

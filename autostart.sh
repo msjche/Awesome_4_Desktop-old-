@@ -14,7 +14,7 @@ run "insync start"
 run "compton"
 #run "/usr/bin/redshift"
 run "urxvtd -q -f -o"
-run "mpd"
+run "/usr/bin/mpd"
 run "nm-applet"
 pkill conky
 

@@ -21,7 +21,7 @@ conky.config = {
 	text_buffer_size = 2048,
 
 	gap_x = 0,
-	gap_y = 440,
+	gap_y = 510,
 	minimum_width = 440, 
 	maximum_width = 440,
 	minimum_height = 990,
@@ -86,7 +86,7 @@ ${goto 10}${font Play:normal:size=8}${color3}${top name 3}${alignr 215}${color2}
 ${goto 10}${font Play:normal:size=8}${color3}${top name 3}${alignr 215}${color2}${top cpu 5}%
 ${goto 10}${font Play:normal:size=8}${color3}${top name 3}${alignr 215}${color2}${top cpu 6}%
 ${font Michroma:bold:size=16}${color4}${goto 211}${voffset 20}CPU
-${font Michroma:bold:size=15}${color4}${goto 70}${voffset 253}MEMORY
+${font Michroma:bold:size=15}${color4}${goto 70}${voffset 223}MEMORY
 ${goto 240}${voffset -72}${color1}${font Michroma:normal:size=8}Top Memory Processes
 ${goto 250}${voffset 0}${font Play:normal:size=8}${color3}${top_mem name 1}${color2}${alignr 20}${top_mem mem 1}%
 ${goto 250}${font Play:normal:size=8}${color3}${top_mem name 2}${alignr 20}${color2}${top_mem mem 2}%
@@ -102,7 +102,7 @@ ${voffset -0}${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /boot}
 ${voffset 0}${color2}${font Play:normal:size=8}${goto 10}/dev/sda ${color3}${hddtemp /dev/sda}ºC${voffset 0}${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /}${color2}%${color1}${font Play:normal:size=8}${goto 145}/${alignr 110}${color2}${fs_used /} / ${color3}${fs_size /}
 ${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /home}${color2}%${color1}${font Play:normal:size=8}${goto 145}/home${alignr 110}${color2}${fs_used /home} / ${color3}${fs_size /home}
 ${voffset 0}${color2}${font Play:normal:size=8}${goto 10}/dev/sdb ${color3}${hddtemp /dev/sdb}ºC${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /media/Data}${color2}%${color1}${font Play:normal:size=8}${goto 145}${voffset 0}/media/Data${alignr 110}${color2}${fs_used /media/Data} / ${color3}${fs_size /media/Data}
-${color2}${font Play:normal:size=8}${goto 250}${voffset 40}Local IP${alignr 10}${addr eno1}
+${color2}${font Play:normal:size=8}${goto 250}${voffset 20}Local IP${alignr 10}${addr eno1}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${execi 3600 wget -qO - ifconfig.co | sed -e 's/[^[:digit:]\|.]//g'}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -1}VPN: ${alignr 10}${font Play:size=9:style=bold}${color5}${if_up tun0}UP${else}${color6}Down$endif
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -3}UFW: ${alignr 10}${color3}${execi 30 systemctl is-active ufw}
@@ -113,11 +113,11 @@ ${color1}${font Play:normal:size=8}${goto 250}${voffset -1}Down${alignr 10}${col
 ${color4}${font Play:bold:size=8}${goto 320}${voffset -1}Packets
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -1}In: ${color1}${tcp_portmon 1 32767 count} ${color2}${alignr 10}Out: $color1${tcp_portmon 32768 61000 count}$color
 ${color4}${font Michroma:bold:size=15}${voffset 0}${goto 95}INTERNET
-${alignr 20}${voffset 10}${color2}${font Michroma:normal:size=8}Download
+${alignr 20}${voffset -30}${color2}${font Michroma:normal:size=8}Download
 ${alignr 10}${color2}${downspeedgraph eno1 45,210}
 ${alignr 20}${voffset 0}${color3}${font Michroma:normal:size=8}Upload
 ${alignr 10}${color3}${upspeedgraph eno1 45,210}
-${color1}${font Play:bold:size=8}${goto 110}${voffset -155}Up${alignr 230}${color2}${color3}${upspeed eno1}
+${color1}${font Play:bold:size=8}${goto 110}${voffset -115}Up${alignr 230}${color2}${color3}${upspeed eno1}
 ${color1}${font Play:bold:size=8}${goto 110}${voffset 7}Down${alignr 230}${color3}${color3}${downspeed eno1}
 
 

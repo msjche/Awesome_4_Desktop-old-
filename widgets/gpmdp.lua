@@ -74,8 +74,8 @@ gpmdp.widget = awful.widget.watch({"pidof", "Google Play Music Desktop Player"},
         gpm_now.running = false
         gpm_now.playing = false
     else
-        dict, pos, err    = require("dkjson").decode(table.concat(filelines), 1, nil) -- dkjson
-        -- dict, pos, err    = require("lain.util").dkjson.decode(table.concat(filelines), 1, nil) -- lain
+        --dict, pos, err    = require("dkjson").decode(table.concat(filelines), 1, nil) -- dkjson
+        dict, pos, err    = require("lain.util").dkjson.decode(table.concat(filelines), 1, nil) -- lain
         gpm_now.artist    = dict.song.artist
         gpm_now.album     = dict.song.album
         gpm_now.title     = dict.song.title
