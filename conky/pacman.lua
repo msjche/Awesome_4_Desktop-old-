@@ -79,17 +79,17 @@ ${goto 10}${font Play Mono:size=10}${color2}Pacman:	${alignr 150}${color4}${font
 ${goto 10}${font Play Mono:size=10}${color2}AUR:	${alignr 150}${color4}${font Play Mono:size=10:bold}${execp cat /tmp/aur.updates | wc -l}$color
 ${goto 10}${font Play Mono:size=10}${color2}Updated:	${alignr 150}${color2}${font Play Mono:size=8:normal}${execp date --date=$(expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 1 | awk '{print $1 "T" $2}')}$color
 # NVIDIA
-${image /home/msjche/.config/awesome/conky/NVIDIA.png -p 350,145 -s 73x73 }
-${voffset -40}${goto 340}${font Play Mono:size=8}${color2}GPU: ${alignr 10}${color3}${nvidia gpuutil}%
+${image /home/msjche/.config/awesome/conky/NVIDIA.png -p 350,160 -s 73x73 }
+${voffset -25}${goto 340}${font Play Mono:size=8}${color2}GPU: ${alignr 10}${color3}${nvidia gpuutil}%
 ${goto 340}${font Play Mono:size=8}${color2}RAM: ${alignr 10}${color3}${nvidia membwutil}%
 ${goto 340}${font Play Mono:size=8}${color2}VIDEO: ${alignr 10}${color3}${nvidia videoutil}%
 ${goto 340}${font Play Mono:size=8}${color2}PCIe: ${alignr 10}${color3}${nvidia pcieutil}%
-${image /home/msjche/.config/awesome/conky/play.png -p 166,395 -s 60x60 }
-${voffset -18}${goto 10}${font Michroma:size=14:style=normal}${color5}Google Music Player
-#${voffset 0}${goto 130}${font Play Mono:size=9}${color2}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.artist, .song.title' | sed ':a;N;$!ba;s/\n/ \- /'}
-${voffset 5}${goto 170}${font Play Mono:size=12}${color4}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.title'}
-${voffset 3}${goto 170}${font Play Mono:size=11}${color2}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.artist'}
-${voffset 3}${goto 170}${font Play Mono:size=10}${color3}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.album'}
+${image /home/msjche/.config/awesome/conky/play.png -p 10,271 -s 30x30 }
+${voffset -40}${goto 45}${font Michroma:size=14:style=normal}${color5}Google Music Player
+${voffset 10}${goto 180}${font Play Mono:size=10}${color4}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.title'}
+${voffset 8}${goto 180}${font Play Mono:size=8}${color2}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.artist'}
+${voffset 3}${goto 180}${font Play Mono:size=7}${color3}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.album'}
+${voffset 3}${goto 180}${font Play Mono:size=8}${color3}${execbar "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.time.current'}
 ${execp cat $HOME/.config/Google\ Play\ Music\ Desktop\ Player/json_store/playback.json | jq '.song.albumArt' | xargs --replace=blah curl -s blah | convert - -resize 306x306 /tmp/cover.png}
-${image /tmp/cover.png -p 10,315 -s 150x150 -n}
+${image /tmp/cover.png -p 10,310 -s 160x160 -n}
 #]];

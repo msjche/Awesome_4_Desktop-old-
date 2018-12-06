@@ -29,6 +29,7 @@ theme.border_width                              = 1
 theme.border_normal                             = "#141414"
 theme.border_focus                              = "#93B6FF"
 theme.taglist_fg_focus                          = "#1793D0"
+theme.taglist_fg_normal                         = "#616161"
 theme.taglist_bg_focus                          = "#111111"
 theme.taglist_bg_normal                         = "#111111"
 theme.titlebar_bg_normal                        = "#191919"
@@ -371,9 +372,9 @@ function theme.at_screen_connect(s)
             --batwidget,
             --bar_spr,
             --fsicon,
-            fswidget,
+            --fswidget,
             bar_spr,
-	    gpmdp.widget,
+	    --gpmdp.widget,
 	    volicon,
             volumewidget,
             bar_spr,

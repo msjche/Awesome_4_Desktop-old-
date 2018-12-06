@@ -1,0 +1,3 @@
+${font Play:size=9}${color1}[:NAME:]${color}${alignr}${color2}[:PERCENT:]%${color}
+Status: ${color1}[:STATUS:]${color} ${goto 100}R: ${color1}[:RATIO:]${color}
+${color5}${lua_bar 10,0 conkytransmission [:PERCENT:]}${color}

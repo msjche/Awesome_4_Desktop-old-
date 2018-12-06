@@ -201,7 +201,7 @@ settings_table = {
         arg='',
         max=100,
         bg_colour=0xE1E4E7,
-        bg_alpha=0.5,
+        bg_alpha=0.3,
         fg_colour=0x1793D0,
         fg_alpha=1,
         x=100, y=446,

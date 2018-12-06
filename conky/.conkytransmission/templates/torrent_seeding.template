@@ -1,0 +1,3 @@
+${font Droid Sans:style=Bold:size=7}${color1}[:NAME:]${color}${alignr}${color2}[:PERCENT:]%${color}
+U: ${color1}[:UP:]${color} ${goto 100}ETA: ${color1}[:ETA:]${color} ${goto 200}R: ${color1}[:RATIO:]${color}
+${color5}${lua_bar 10,0 conkytransmission [:PERCENT:]}${color}

@@ -103,7 +103,8 @@ ${voffset 0}${color2}${font Play:normal:size=8}${goto 10}/dev/sda ${color3}${hdd
 ${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /home}${color2}%${color1}${font Play:normal:size=8}${goto 145}/home${alignr 110}${color2}${fs_used /home} / ${color3}${fs_size /home}
 ${voffset 0}${color2}${font Play:normal:size=8}${goto 10}/dev/sdb ${color3}${hddtemp /dev/sdb}ºC${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /media/Data}${color2}%${color1}${font Play:normal:size=8}${goto 145}${voffset 0}/media/Data${alignr 110}${color2}${fs_used /media/Data} / ${color3}${fs_size /media/Data}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset 20}Local IP${alignr 10}${addr eno1}
-${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${execi 3600 wget -qO - ifconfig.co | sed -e 's/[^[:digit:]\|.]//g'}
+#${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${execi 3600 wget -qO - ifconfig.co | sed -e 's/[^[:digit:]\|.]//g'}
+${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${color red}NOPE ;)
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -1}VPN: ${alignr 10}${font Play:size=9:style=bold}${color5}${if_up tun0}UP${else}${color6}Down$endif
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -3}UFW: ${alignr 10}${color3}${execi 30 systemctl is-active ufw}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Int:${alignr 10}${color3}$gw_iface 
