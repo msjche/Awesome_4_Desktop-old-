@@ -75,7 +75,7 @@ ${image /home/msjche/.config/awesome/conky/arch.png -p 0,0 -s 440x140 }
 ${voffset 55}${alignr 35}${font Play:size=14:style=bold}${color4}$kernel
 ${voffset -10}${goto 200}${font Play:size=10:style=normal}${color2}Uptime: ${alignr 35}${font Play:size=11:style=bold}${color1}$uptime
 ${voffset 20}${goto 50}${font Michroma:size=12:style=normal}${color2}System Updates
-${goto 10}${font Play Mono:size=10}${color2}Pacman:	${alignr 150}${color4}${font Play Mono:size=10:bold}${execpi 3600 checkupdates | awk 'END { print (NR == 0 ? "System up to date" : NR " package" (NR > 1 ? "s" : "")); }'}
+${goto 10}${font Play Mono:size=10}${color2}Pacman:	${alignr 150}${color4}${font Play Mono:size=10:bold}${execp checkupdates | awk 'END { print (NR == 0 ? "System up to date" : NR " package" (NR > 1 ? "s" : "")); }'}
 ${goto 10}${font Play Mono:size=10}${color2}AUR:	${alignr 150}${color4}${font Play Mono:size=10:bold}${execp cat /tmp/aur.updates | wc -l}$color
 ${goto 10}${font Play Mono:size=10}${color2}Updated:	${alignr 150}${color2}${font Play Mono:size=8:normal}${execp date --date=$(expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 1 | awk '{print $1 "T" $2}')}$color
 # NVIDIA

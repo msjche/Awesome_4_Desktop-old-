@@ -73,6 +73,7 @@ conky.text = [[
 ${color4}${font xirod:size=10}Google Calendar ${hr 2}$font$color
 ${voffset -10}${font Droid Sans Mono:size=7:bold}$color2${execi 300 gcalcli --nocolor --lineart ascii --conky calw 2}
 ${voffset -10}${font Droid Sans Mono:size=9:bold}$color3${execi 300 gcalcli --nocolor --lineart ascii --conky agenda}
+
 ${color4}${font xirod:Bold:size=10}News ${hr 2}$font$color
 ${color2}${font Play:size=9}Zerohedge Latest Headlines:
 ${color1}${font Play:size=9}${execi 300 /home/msjche/.config/awesome/conky/conky-rss.sh http://feeds.feedburner.com/zerohedge/feed 4 2}
