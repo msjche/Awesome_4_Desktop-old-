@@ -13,7 +13,7 @@ conky.config = {
 
 	cpu_avg_samples = 2,
 	net_avg_samples = 2,
-	temperature_unit = 'farenheight',
+	temperature_unit = 'fahrenheight',
 
 	double_buffer = true,
 	no_buffers = true,

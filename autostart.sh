@@ -12,13 +12,13 @@ run "/usr/bin/xscreensaver --no-splash"
 run "/usr/bin/dropbox"
 run "insync start"
 run "compton"
-run "/usr/bin/redshift"
+#run "/usr/bin/redshift"
 run "urxvtd -q -f -o"
 run "/usr/bin/mpd"
 run "nm-applet"
 pkill conky
 
+#sleep 3
+run "conky -c /home/msjche/.config/awesome/conky/conkyrcr.lua"
 sleep 3
 run "conky -c /home/msjche/.config/awesome/conky/conkyrcl.lua"
-sleep 1
-run "conky -c /home/msjche/.config/awesome/conky/conkyrcr.lua"

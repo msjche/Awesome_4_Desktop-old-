@@ -3,11 +3,11 @@ conky.config = {
 
 	background = true,
 	update_interval = 1,
-	time_in_seconds = true,
+--	time_in_seconds = true,
 
 	cpu_avg_samples = 2,
 	net_avg_samples = 2,
-	temperature_unit = 'fahrenheit',
+	temperature_unit = 'celsius',
 
 	double_buffer = true,
 	no_buffers = true,
@@ -33,7 +33,7 @@ conky.config = {
 
 	own_window_transparent = false,
 	own_window_argb_value = 100,
-	own_window_color = '000000', 
+--	own_window_color = '#000000', 
 
 	draw_shades = false,
 	draw_outline = false,
@@ -61,8 +61,9 @@ conky.config = {
 -- Red
 	color6 = '#F45F45',
 -- Loading lua script for drawning rings
-	lua_load = '~/.config/awesome/conky/rings.lua',
-	lua_draw_hook_pre = 'ring_stats',
+    lua_load = '~/.config/awesome/conky/conky_draw.lua',
+    lua_draw_hook_pre = 'main',
+    --lua_draw_hook_pre = '~/.config/awesome/conky',
 };
 
 conky.text = [[
