@@ -1,10 +1,3 @@
------------------------------------------------------------------------------
---                               conkyrc_seamod
--- Date    : 04/23/2016
--- Author  : SeaJey and Maxiwell
--- Conky   : >= 1.10 
--- License : Distributed under the terms of GNU GPL version 2 or later
------------------------------------------------------------------------------
 
 conky.config = {
 
@@ -14,17 +7,18 @@ conky.config = {
 
 	cpu_avg_samples = 2,
 	net_avg_samples = 2,
-	temperature_unit = 'farenheight',
+	temperature_unit = 'fahrenheit',
 
 	double_buffer = true,
 	no_buffers = true,
 	text_buffer_size = 2048,
 
 	gap_x = 0,
-	gap_y = 510,
+	gap_y = 31,
 	minimum_width = 440, 
 	maximum_width = 440,
-	minimum_height = 990,
+	minimum_height = 480,
+--	maximum_height = 480,
 
 	own_window = true,
 	own_window_type = 'desktop',
@@ -39,7 +33,7 @@ conky.config = {
 
 	own_window_transparent = false,
 	own_window_argb_value = 100,
-	own_window_color = '000000',
+	own_window_color = '000000', 
 
 	draw_shades = false,
 	draw_outline = false,
@@ -63,20 +57,40 @@ conky.config = {
 -- Arch blue
 	color4 = '#1793D0',
 -- Green
-	color5 = '#8FEB8F',
+	color5 = '#FF5722',
 -- Red
 	color6 = '#F45F45',
 -- Loading lua script for drawning rings
---	lua_load = '~/.config/awesome/conky/seamod_rings.lua',
---	lua_draw_hook_pre = 'main',
 	lua_load = '~/.config/awesome/conky/rings.lua',
 	lua_draw_hook_pre = 'ring_stats',
-
 };
 
 conky.text = [[
+
+${image /home/msjche/.config/awesome/conky/arch.png -p 0,0 -s 440x140 }
+${voffset 55}${alignr 35}${font Play:size=14:style=bold}${color4}$kernel
+${voffset -10}${goto 200}${font Play:size=10:style=normal}${color2}Uptime: ${alignr 35}${font Play:size=11:style=bold}${color1}$uptime
+${voffset 20}${goto 50}${font Michroma:size=12:style=normal}${color2}System Updates
+${goto 10}${font Play Mono:size=10}${color2}Pacman:	${alignr 150}${color4}${font Play Mono:size=10:bold}${execp checkupdates | awk 'END { print (NR == 0 ? "System up to date" : NR " package" (NR > 1 ? "s" : "")); }'}
+${goto 10}${font Play Mono:size=10}${color2}AUR:	${alignr 150}${color4}${font Play Mono:size=10:bold}${execp cat /tmp/aur.updates | wc -l}$color
+${goto 10}${font Play Mono:size=10}${color2}Updated:	${alignr 150}${color2}${font Play Mono:size=8:normal}${execp date --date=$(expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 1 | awk '{print $1 "T" $2}')}$color
+# NVIDIA
+${image /home/msjche/.config/awesome/conky/NVIDIA.png -p 350,160 -s 73x73 }
+${voffset -25}${goto 340}${font Play Mono:size=8}${color2}GPU: ${alignr 10}${color3}${nvidia gpuutil}%
+${goto 340}${font Play Mono:size=8}${color2}RAM: ${alignr 10}${color3}${nvidia membwutil}%
+${goto 340}${font Play Mono:size=8}${color2}VIDEO: ${alignr 10}${color3}${nvidia videoutil}%
+${goto 340}${font Play Mono:size=8}${color2}PCIe: ${alignr 10}${color3}${nvidia pcieutil}%
+${image /home/msjche/.config/awesome/conky/play.png -p 10,271 -s 30x30 }
+${voffset -40}${goto 45}${font Michroma:size=14:style=normal}${color5}Google Music Player
+${voffset 10}${goto 180}${font Play Mono:size=10}${color4}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.title'}
+${voffset 8}${goto 180}${font Play Mono:size=8}${color2}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.artist'}
+${voffset 3}${goto 180}${font Play Mono:size=7}${color3}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.album'}
+#${voffset 3}${goto 180}${font Play Mono:size=8}${color3}${execbar "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.time.current'}
+${execp cat $HOME/.config/Google\ Play\ Music\ Desktop\ Player/json_store/playback.json | jq '.song.albumArt' | xargs --replace=blah curl -s blah | convert - -resize 306x306 /tmp/cover.png}
+${image /tmp/cover.png -p 10,305 -s 160x160 -n}
+
 # CPU Text
-${font Play:normal:size=7}${voffset 0}${color1}${alignr 200}${acpitemp} °C
+${font Play:normal:size=7}${voffset 40}${color1}${alignr 200}${acpitemp} °C
 ${alignr 200}${alignr 200}${freq_g cpu0} Ghz
 ${voffset -20}${goto 10}${color4}${cpugraph cpu1 40,180}
 ${goto 35}${voffset -5}${color1}${font Michroma:normal:size=8}Top CPU Processes
@@ -99,14 +113,14 @@ ${font Play:normal:bold:size=8}${voffset 40}${goto 10}${color2}Read${color2}${al
 ${font Play:normal:bold:size=8}${voffset -3}${goto 10}${color3}Write${color3}${alignr 240}${voffset 0}${diskiograph_write 20,140}
 ${font Michroma:bold:size=15}${color4}${goto 143}${voffset -7}HARD DRIVE
 ${voffset -0}${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /boot}${color2}%${color1}${font Play:normal:size=8}${goto 145}/boot${alignr 110}${color2}${fs_used /boot} / ${color3}${fs_size /boot}
-${voffset 0}${color2}${font Play:normal:size=8}${goto 10}/dev/sda ${color3}${hddtemp /dev/sda}ºC${voffset 0}${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /}${color2}%${color1}${font Play:normal:size=8}${goto 145}/${alignr 110}${color2}${fs_used /} / ${color3}${fs_size /}
+${voffset 0}${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /}${color2}%${color1}${font Play:normal:size=8}${goto 145}/${alignr 110}${color2}${fs_used /} / ${color3}${fs_size /}
 ${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /home}${color2}%${color1}${font Play:normal:size=8}${goto 145}/home${alignr 110}${color2}${fs_used /home} / ${color3}${fs_size /home}
-${voffset 0}${color2}${font Play:normal:size=8}${goto 10}/dev/sdb ${color3}${hddtemp /dev/sdb}ºC${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /media/Data}${color2}%${color1}${font Play:normal:size=8}${goto 145}${voffset 0}/media/Data${alignr 110}${color2}${fs_used /media/Data} / ${color3}${fs_size /media/Data}
+${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /media/Data}${color2}%${color1}${font Play:normal:size=8}${goto 145}${voffset 0}/media/Data${alignr 110}${color2}${fs_used /media/Data} / ${color3}${fs_size /media/Data}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset 20}Local IP${alignr 10}${addr eno1}
 #${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${execi 3600 wget -qO - ifconfig.co | sed -e 's/[^[:digit:]\|.]//g'}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${color red}NOPE ;)
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -1}VPN: ${alignr 10}${font Play:size=9:style=bold}${color5}${if_up tun0}UP${else}${color6}Down$endif
-${color2}${font Play:normal:size=8}${goto 250}${voffset -3}UFW: ${alignr 10}${color3}${execi 30 systemctl is-active ufw}
+${color2}${font Play:normal:size=8}${goto 250}${voffset -3}UFW: ${alignr 10}${font Play:size=9:style=bold}${color4}${execi 30 systemctl is-active ufw}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Int:${alignr 10}${color3}$gw_iface 
 ${color4}${font Play:bold:size=8}${goto 320}${voffset -1}Totals
 ${color1}${font Play:normal:size=8}${goto 250}${voffset -3}Up${alignr 10}${color2}${totalup eno1}
@@ -120,7 +134,4 @@ ${alignr 20}${voffset 0}${color3}${font Michroma:normal:size=8}Upload
 ${alignr 10}${color3}${upspeedgraph eno1 45,210}
 ${color1}${font Play:bold:size=8}${goto 110}${voffset -115}Up${alignr 230}${color2}${color3}${upspeed eno1}
 ${color1}${font Play:bold:size=8}${goto 110}${voffset 7}Down${alignr 230}${color3}${color3}${downspeed eno1}
-
-
-
 ]];
