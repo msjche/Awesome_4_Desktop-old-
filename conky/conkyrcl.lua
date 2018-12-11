@@ -52,14 +52,14 @@ conky.config = {
 	color1 = '#DDDDDD',
 	color2 = '#AAAAAA',
 	color3 = '#888888',
--- Gentoo Purple
---	color4 = '#7A5ADA',
 -- Arch blue
 	color4 = '#1793D0',
 -- Green
-	color5 = '#FF5722',
+	color5 = '#8FEB8F',
 -- Red
 	color6 = '#F45F45',
+-- Gentoo Purple
+	color7 = '#7A5ADA',
 -- Loading lua script for drawning rings
     lua_load = '~/.config/awesome/conky/conky_draw.lua',
     lua_draw_hook_pre = 'main',
@@ -82,13 +82,13 @@ ${goto 340}${font Play Mono:size=8}${color2}RAM: ${alignr 10}${color3}${nvidia m
 ${goto 340}${font Play Mono:size=8}${color2}VIDEO: ${alignr 10}${color3}${nvidia videoutil}%
 ${goto 340}${font Play Mono:size=8}${color2}PCIe: ${alignr 10}${color3}${nvidia pcieutil}%
 ${image /home/msjche/.config/awesome/conky/play.png -p 10,271 -s 30x30 }
-${voffset -40}${goto 45}${font Michroma:size=14:style=normal}${color5}Google Music Player
+${voffset -40}${goto 45}${font Michroma:size=14:style=normal}${color6}Google Music Player
 ${voffset 10}${goto 180}${font Play Mono:size=10}${color4}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.title'}
 ${voffset 8}${goto 180}${font Play Mono:size=8}${color2}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.artist'}
 ${voffset 3}${goto 180}${font Play Mono:size=7}${color3}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.album'}
 #${voffset 3}${goto 180}${font Play Mono:size=8}${color3}${execbar "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.time.current'}
 ${execp cat $HOME/.config/Google\ Play\ Music\ Desktop\ Player/json_store/playback.json | jq '.song.albumArt' | xargs --replace=blah curl -s blah | convert - -resize 306x306 /tmp/cover.png}
-${image /tmp/cover.png -p 10,305 -s 160x160 -n}
+${image /tmp/cover.png -p 10,305 -s 150x150 -n}
 
 # CPU Text
 ${font Play:normal:size=7}${voffset 40}${color1}${alignr 200}${acpitemp} °C
@@ -119,9 +119,9 @@ ${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /home}${color2}%${c
 ${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /media/Data}${color2}%${color1}${font Play:normal:size=8}${goto 145}${voffset 0}/media/Data${alignr 110}${color2}${fs_used /media/Data} / ${color3}${fs_size /media/Data}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset 20}Local IP${alignr 10}${addr eno1}
 #${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${execi 3600 wget -qO - ifconfig.co | sed -e 's/[^[:digit:]\|.]//g'}
-${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${color red}NOPE ;)
-${color2}${font Play:normal:size=8}${goto 250}${voffset -1}VPN: ${alignr 10}${font Play:size=9:style=bold}${color5}${if_up tun0}UP${else}${color6}Down$endif
-${color2}${font Play:normal:size=8}${goto 250}${voffset -3}UFW: ${alignr 10}${font Play:size=9:style=bold}${color4}${execi 30 systemctl is-active ufw}
+${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${color red}NOPE ;)$color
+${color2}${font Play:normal:size=8}${goto 250}${voffset -1}VPN: ${alignr 10}${color5}${font Play:size=9:style=bold}${if_up tun0}UP${else}${color6}Down$endif
+${color2}${font Play:normal:size=8}${goto 250}${voffset -3}UFW: ${alignr 10}${font Play:size=9:style=bold}${color5}${execi 30 systemctl is-active ufw}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Int:${alignr 10}${color3}$gw_iface 
 ${color4}${font Play:bold:size=8}${goto 320}${voffset -1}Totals
 ${color1}${font Play:normal:size=8}${goto 250}${voffset -3}Up${alignr 10}${color2}${totalup eno1}

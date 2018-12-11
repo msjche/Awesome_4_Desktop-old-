@@ -8,11 +8,11 @@ function run {
 }
 
 #run "megasync"
-run "/usr/bin/xscreensaver --no-splash"
+run "/usr/bin/xscreensaver -no-splash"
 run "/usr/bin/dropbox"
 run "insync start"
 run "compton"
-#run "/usr/bin/redshift"
+run "/usr/bin/redshift"
 run "urxvtd -q -f -o"
 run "/usr/bin/mpd"
 run "nm-applet"
