@@ -76,24 +76,20 @@ template2='~/.config/awesome/conky/.conky-vision/#fff__32',  --  +2days
 template3='~/.config/awesome/conky/.conky-vision/#fff__32',  --  +3days
 template4='~/.config/awesome/conky/.conky-vision/#fff__32',  --  +4days
 
-
 -------------------------------------
 --  API Key
 -------------------------------------
 template6="eff739afa6a15cf12d1204c85e0f1c3c",
-
 
 -------------------------------------
 --  City ID
 -------------------------------------
 template7="5570160",
 
-
 -------------------------------------
 --  Temp Unit (default, metric, imperial)
 -------------------------------------
 template8="imperial",
-
 
 -------------------------------------
 --  Locale (e.g. "es_ES.UTF-8")
@@ -105,38 +101,28 @@ template9=""
 
 conky.text = [[
 ${execi 300 ~/.config/awesome/conky/.conky-vision/get_weather ${template6} ${template7} ${template8} ${template9}}\
-${font Play:size=65}${color0}\
+${font Play:size=70}${color4}\
 ${alignc}${time %H:%M}\
 ${font}${color}
 \
-\
-${font Play:size=25}${color1}\
-${voffset 20}\
+${font Play:size=20}${color2}\
+${voffset 10}\
 ${alignc}${execi 300 LANG=${template9} LC_TIME=${template9} date +"%A, %B %d"}\
 ${font}${color}
 \
-\
-\
-\
-${font Play:size=11}${color1}\
-${voffset 26}\
+${font Play:size=11}${color3}\
+${voffset 20}\
 ${goto 10}${execi 300 jq .main.temp ~/.cache/conky-vision/weather.json | awk '{print int($1+0.5)}' # round num}°\
 ${font}${color}\
 \
-\
-\
-\
-${font Play:size=11}${color1}\
+${font Play:size=11}${color3}\
 ${goto 105}${execi 300 ~/.config/awesome/conky/.conky-vision/parse_weather 'max' '.main.temp' '1'}°\
 ${goto 205}${execi 300 ~/.config/awesome/conky/.conky-vision/parse_weather 'max' '.main.temp' '2'}°\
 ${goto 305}${execi 300 ~/.config/awesome/conky/.conky-vision/parse_weather 'max' '.main.temp' '3'}°\
 ${goto 405}${execi 300 ~/.config/awesome/conky/.conky-vision/parse_weather 'max' '.main.temp' '4'}°\
 ${font}${color}\
 \
-\
-\
-\
-${font Play:size=11}${color1}\
+${font Play:size=11}${color3}\
 ${voffset 57}\
 ${goto 150}${execi 300 ~/.config/awesome/conky/.conky-vision/parse_weather 'min' '.main.temp' '1'}°\
 ${goto 250}${execi 300 ~/.config/awesome/conky/.conky-vision/parse_weather 'min' '.main.temp' '2'}°\
@@ -147,17 +133,17 @@ ${font}${color}
 \
 ${font Play:regular:size=14}${color2}\
 ${voffset 10}\
-${goto 18}${execi 300 LANG=${template9} LC_TIME=${template9} date +%a | gawk '{print toupper($0);}'}\
-${goto 115}${execi 300 LANG=${template9} LC_TIME=${template9} date -d +1day +%a | gawk '{print toupper($0);}'}\
-${goto 211}${execi 300 LANG=${template9} LC_TIME=${template9} date -d +2days +%a | gawk '{print toupper($0);}'}\
+${goto 15}${execi 300 LANG=${template9} LC_TIME=${template9} date +%a | gawk '{print toupper($0);}'}\
+${goto 110}${execi 300 LANG=${template9} LC_TIME=${template9} date -d +1day +%a | gawk '{print toupper($0);}'}\
+${goto 217}${execi 300 LANG=${template9} LC_TIME=${template9} date -d +2days +%a | gawk '{print toupper($0);}'}\
 ${goto 315}${execi 300 LANG=${template9} LC_TIME=${template9} date -d +3days +%a | gawk '{print toupper($0);}'}\
-${goto 420}${execi 300 LANG=${template9} LC_TIME=${template9} date -d +4days +%a | gawk '{print toupper($0);}'}\
+${goto 410}${execi 300 LANG=${template9} LC_TIME=${template9} date -d +4days +%a | gawk '{print toupper($0);}'}\
 ${font}${color}
-${execi 300 cp -f ${template0}/$(jq .weather[0].id ~/.cache/conky-vision/weather.json).png ~/.cache/conky-vision/current.png}${image ~/.cache/conky-vision/current.png -p 12,200 -s 52x52}\
-${execi 300 cp -f ${template1}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '1').png ~/.cache/conky-vision/forecast-1.png}${image ~/.cache/conky-vision/forecast-1.png -p 105,200 -s 52x52}\
-${execi 300 cp -f ${template2}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '2').png ~/.cache/conky-vision/forecast-2.png}${image ~/.cache/conky-vision/forecast-2.png -p 205,200 -s 52x52}\
-${execi 300 cp -f ${template3}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '3').png ~/.cache/conky-vision/forecast-3.png}${image ~/.cache/conky-vision/forecast-3.png -p 305,200 -s 52x52}\
-${execi 300 cp -f ${template4}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '4').png ~/.cache/conky-vision/forecast-4.png}${image ~/.cache/conky-vision/forecast-4.png -p 405,200 -s 52x52}\
+${execi 300 cp -f ${template0}/$(jq .weather[0].id ~/.cache/conky-vision/weather.json).png ~/.cache/conky-vision/current.png}${image ~/.cache/conky-vision/current.png -p 12,180 -s 52x52}\
+${execi 300 cp -f ${template1}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '1').png ~/.cache/conky-vision/forecast-1.png}${image ~/.cache/conky-vision/forecast-1.png -p 105,180 -s 52x52}\
+${execi 300 cp -f ${template2}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '2').png ~/.cache/conky-vision/forecast-2.png}${image ~/.cache/conky-vision/forecast-2.png -p 205,180 -s 52x52}\
+${execi 300 cp -f ${template3}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '3').png ~/.cache/conky-vision/forecast-3.png}${image ~/.cache/conky-vision/forecast-3.png -p 305,180 -s 52x52}\
+${execi 300 cp -f ${template4}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '4').png ~/.cache/conky-vision/forecast-4.png}${image ~/.cache/conky-vision/forecast-4.png -p 405,180 -s 52x52}\
 
 ${color4}${font xirod:size=10}Google Calendar ${hr 2}$font$color
 ${voffset -10}${font Droid Sans Mono:size=7:bold}$color2${execi 300 gcalcli --nocolor --lineart ascii --conky calw 2}

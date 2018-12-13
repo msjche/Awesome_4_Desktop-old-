@@ -198,7 +198,11 @@ screen.connect_signal("property::geometry", function(s)
     end
 end)
 -- Create a wibox for each screen and add it
-awful.screen.connect_for_each_screen(function(s) beautiful.at_screen_connect(s) end)
+awful.screen.connect_for_each_screen(function(s) 
+    s.systray = wibox.widget.systray()
+    s.systray.visible = false
+    beautiful.at_screen_connect(s) 
+    end)
 -- }}}
 
 -- {{{ Mouse bindings
@@ -227,6 +231,9 @@ globalkeys = awful.util.table.join(
 	awful.key({ modkey, "Control" }, "k", function () awful.util.spawn( "konsole" ) end),
 	awful.key({ modkey, "Control" }, "t", function () awful.util.spawn( "tor-browser-en" ) end),
 
+    awful.key({ modkey }, "=", function ()
+    awful.screen.focused().systray.visible = not awful.screen.focused().systray.visible
+    end, {description = "Toggle systray visibility", group = "custom"}),
 
     -- Hotkeys
     awful.key({ modkey, "Shift" }, "s",      hotkeys_popup.show_help,

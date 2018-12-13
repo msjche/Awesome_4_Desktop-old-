@@ -82,16 +82,16 @@ ${goto 340}${font Play Mono:size=8}${color2}RAM: ${alignr 10}${color3}${nvidia m
 ${goto 340}${font Play Mono:size=8}${color2}VIDEO: ${alignr 10}${color3}${nvidia videoutil}%
 ${goto 340}${font Play Mono:size=8}${color2}PCIe: ${alignr 10}${color3}${nvidia pcieutil}%
 ${image /home/msjche/.config/awesome/conky/play.png -p 10,271 -s 30x30 }
-${voffset -40}${goto 45}${font Michroma:size=14:style=normal}${color6}Google Music Player
-${voffset 10}${goto 180}${font Play Mono:size=10}${color4}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.title'}
-${voffset 8}${goto 180}${font Play Mono:size=8}${color2}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.artist'}
-${voffset 3}${goto 180}${font Play Mono:size=7}${color3}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.album'}
+${voffset -40}${goto 45}${font Michroma:size=12:style=normal}${color6}Google Music Player
+${voffset 5}${goto 170}${font Play Mono:size=10}${color4}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.title'}
+${voffset 8}${goto 170}${font Play Mono:size=8}${color2}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.artist'}
+${voffset 3}${goto 170}${font Play Mono:size=7}${color3}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.album'}
 #${voffset 3}${goto 180}${font Play Mono:size=8}${color3}${execbar "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.time.current'}
 ${execp cat $HOME/.config/Google\ Play\ Music\ Desktop\ Player/json_store/playback.json | jq '.song.albumArt' | xargs --replace=blah curl -s blah | convert - -resize 306x306 /tmp/cover.png}
 ${image /tmp/cover.png -p 10,305 -s 150x150 -n}
 
 # CPU Text
-${font Play:normal:size=7}${voffset 40}${color1}${alignr 200}${acpitemp} °C
+${font Play:normal:size=7}${voffset 48}${color1}${alignr 200}${acpitemp} °C
 ${alignr 200}${alignr 200}${freq_g cpu0} Ghz
 ${voffset -20}${goto 10}${color4}${cpugraph cpu1 40,180}
 ${goto 35}${voffset -5}${color1}${font Michroma:normal:size=8}Top CPU Processes
@@ -100,8 +100,8 @@ ${goto 10}${font Play:normal:size=8}${color3}${top name 2}${alignr 215}${color2}
 ${goto 10}${font Play:normal:size=8}${color3}${top name 3}${alignr 215}${color2}${top cpu 4}%
 ${goto 10}${font Play:normal:size=8}${color3}${top name 3}${alignr 215}${color2}${top cpu 5}%
 ${goto 10}${font Play:normal:size=8}${color3}${top name 3}${alignr 215}${color2}${top cpu 6}%
-${font Michroma:bold:size=16}${color4}${goto 211}${voffset 20}CPU
-${font Michroma:bold:size=15}${color4}${goto 70}${voffset 223}MEMORY
+${font Michroma:bold:size=16}${color4}${goto 211}${voffset 25}CPU
+${font Michroma:bold:size=15}${color4}${goto 70}${voffset 224}MEMORY
 ${goto 240}${voffset -72}${color1}${font Michroma:normal:size=8}Top Memory Processes
 ${goto 250}${voffset 0}${font Play:normal:size=8}${color3}${top_mem name 1}${color2}${alignr 20}${top_mem mem 1}%
 ${goto 250}${font Play:normal:size=8}${color3}${top_mem name 2}${alignr 20}${color2}${top_mem mem 2}%
@@ -113,10 +113,10 @@ ${font Play:normal:bold:size=8}${voffset 3}${goto 108}${color1}RAM ${font Play:n
 ${font Play:normal:bold:size=8}${voffset 40}${goto 10}${color2}Read${color2}${alignr 240}${voffset 0}${diskiograph_read 20,140}
 ${font Play:normal:bold:size=8}${voffset -3}${goto 10}${color3}Write${color3}${alignr 240}${voffset 0}${diskiograph_write 20,140}
 ${font Michroma:bold:size=15}${color4}${goto 143}${voffset -7}HARD DRIVE
-${voffset -0}${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /boot}${color2}%${color1}${font Play:normal:size=8}${goto 145}/boot${alignr 110}${color2}${fs_used /boot} / ${color3}${fs_size /boot}
-${voffset 0}${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /}${color2}%${color1}${font Play:normal:size=8}${goto 145}/${alignr 110}${color2}${fs_used /} / ${color3}${fs_size /}
-${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /home}${color2}%${color1}${font Play:normal:size=8}${goto 145}/home${alignr 110}${color2}${fs_used /home} / ${color3}${fs_size /home}
-${color2}${font Play:normal:size=8}${goto 110}${fs_free_perc /media/Data}${color2}%${color1}${font Play:normal:size=8}${goto 145}${voffset 0}/media/Data${alignr 110}${color2}${fs_used /media/Data} / ${color3}${fs_size /media/Data}
+${voffset -0}${color2}${font Play:normal:size=8}${goto 110}${fs_used_perc /boot}${color2}%${color1}${font Play:normal:size=8}${goto 145}/boot${alignr 110}${color2}${fs_used /boot} / ${color3}${fs_size /boot}
+${voffset 0}${color2}${font Play:normal:size=8}${goto 110}${fs_used_perc /}${color2}%${color1}${font Play:normal:size=8}${goto 145}/${alignr 110}${color2}${fs_used /} / ${color3}${fs_size /}
+${color2}${font Play:normal:size=8}${goto 110}${fs_used_perc /home}${color2}%${color1}${font Play:normal:size=8}${goto 145}/home${alignr 110}${color2}${fs_used /home} / ${color3}${fs_size /home}
+${color2}${font Play:normal:size=8}${goto 110}${fs_used_perc /media/Data}${color2}%${color1}${font Play:normal:size=8}${goto 145}${voffset 0}/media/Data${alignr 110}${color2}${fs_used /media/Data} / ${color3}${fs_size /media/Data}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset 20}Local IP${alignr 10}${addr eno1}
 #${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${execi 3600 wget -qO - ifconfig.co | sed -e 's/[^[:digit:]\|.]//g'}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${color red}NOPE ;)$color
