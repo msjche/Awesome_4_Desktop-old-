@@ -81,17 +81,18 @@ ${voffset -25}${goto 340}${font Play Mono:size=8}${color2}GPU: ${alignr 10}${col
 ${goto 340}${font Play Mono:size=8}${color2}RAM: ${alignr 10}${color3}${nvidia membwutil}%
 ${goto 340}${font Play Mono:size=8}${color2}VIDEO: ${alignr 10}${color3}${nvidia videoutil}%
 ${goto 340}${font Play Mono:size=8}${color2}PCIe: ${alignr 10}${color3}${nvidia pcieutil}%
-${image /home/msjche/.config/awesome/conky/play.png -p 10,271 -s 30x30 }
+${image /home/msjche/.config/awesome/conky/play.png -p 10,266 -s 30x30 }
 ${voffset -40}${goto 45}${font Michroma:size=12:style=normal}${color6}Google Music Player
-${voffset 5}${goto 170}${font Play Mono:size=10}${color4}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.title'}
-${voffset 8}${goto 170}${font Play Mono:size=8}${color2}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.artist'}
-${voffset 3}${goto 170}${font Play Mono:size=7}${color3}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.album'}
-#${voffset 3}${goto 180}${font Play Mono:size=8}${color3}${execbar "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.time.current'}
+${voffset 5}${goto 170}${font Play Mono:size=10}${color1}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.title'}
+${voffset 2}${goto 170}${font Play Mono:size=8}${color2}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.artist'}
+${voffset 0}${goto 170}${font Play Mono:size=7}${color3}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.album'}
+${voffset 3}${goto 170}${font Play Mono:size=8}${color3}${execbar 5,260 "$HOME/.config/awesome/conky/gplay.py"}
+${voffset 0}${alignr 10}${font Play Mono:size=7}${color2}${execp "$HOME/.config/awesome/conky/gtime.py"}
 ${execp cat $HOME/.config/Google\ Play\ Music\ Desktop\ Player/json_store/playback.json | jq '.song.albumArt' | xargs --replace=blah curl -s blah | convert - -resize 306x306 /tmp/cover.png}
-${image /tmp/cover.png -p 10,305 -s 150x150 -n}
+${image /tmp/cover.png -p 10,300 -s 150x150 -n}
 
 # CPU Text
-${font Play:normal:size=7}${voffset 48}${color1}${alignr 200}${acpitemp} °C
+${font Play:normal:size=7}${voffset 25}${color1}${alignr 200}${acpitemp} °C
 ${alignr 200}${alignr 200}${freq_g cpu0} Ghz
 ${voffset -20}${goto 10}${color4}${cpugraph cpu1 40,180}
 ${goto 35}${voffset -5}${color1}${font Michroma:normal:size=8}Top CPU Processes

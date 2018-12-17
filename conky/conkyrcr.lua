@@ -139,14 +139,14 @@ ${goto 217}${execi 300 LANG=${template9} LC_TIME=${template9} date -d +2days +%a
 ${goto 315}${execi 300 LANG=${template9} LC_TIME=${template9} date -d +3days +%a | gawk '{print toupper($0);}'}\
 ${goto 410}${execi 300 LANG=${template9} LC_TIME=${template9} date -d +4days +%a | gawk '{print toupper($0);}'}\
 ${font}${color}
-${execi 300 cp -f ${template0}/$(jq .weather[0].id ~/.cache/conky-vision/weather.json).png ~/.cache/conky-vision/current.png}${image ~/.cache/conky-vision/current.png -p 12,180 -s 52x52}\
-${execi 300 cp -f ${template1}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '1').png ~/.cache/conky-vision/forecast-1.png}${image ~/.cache/conky-vision/forecast-1.png -p 105,180 -s 52x52}\
-${execi 300 cp -f ${template2}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '2').png ~/.cache/conky-vision/forecast-2.png}${image ~/.cache/conky-vision/forecast-2.png -p 205,180 -s 52x52}\
-${execi 300 cp -f ${template3}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '3').png ~/.cache/conky-vision/forecast-3.png}${image ~/.cache/conky-vision/forecast-3.png -p 305,180 -s 52x52}\
-${execi 300 cp -f ${template4}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '4').png ~/.cache/conky-vision/forecast-4.png}${image ~/.cache/conky-vision/forecast-4.png -p 405,180 -s 52x52}\
+${execi 300 cp -f ${template0}/$(jq .weather[0].id ~/.cache/conky-vision/weather.json).png ~/.cache/conky-vision/current.png}${image ~/.cache/conky-vision/current.png -p 17,180 -s 52x52}\
+${execi 300 cp -f ${template1}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '1').png ~/.cache/conky-vision/forecast-1.png}${image ~/.cache/conky-vision/forecast-1.png -p 109,180 -s 52x52}\
+${execi 300 cp -f ${template2}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '2').png ~/.cache/conky-vision/forecast-2.png}${image ~/.cache/conky-vision/forecast-2.png -p 209,180 -s 52x52}\
+${execi 300 cp -f ${template3}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '3').png ~/.cache/conky-vision/forecast-3.png}${image ~/.cache/conky-vision/forecast-3.png -p 309,180 -s 52x52}\
+${execi 300 cp -f ${template4}/$(~/.config/awesome/conky/.conky-vision/parse_weather 'first' '.weather[0].id' '4').png ~/.cache/conky-vision/forecast-4.png}${image ~/.cache/conky-vision/forecast-4.png -p 409,180 -s 52x52}\
 
 ${color4}${font xirod:size=10}Google Calendar ${hr 2}$font$color
-${voffset -10}${font Droid Sans Mono:size=7:bold}$color2${execi 300 gcalcli --nocolor --lineart ascii --conky calw 2}
+${voffset -10}${font Droid Sans Mono:size=7:bold}$color2${execi 300 gcalcli --nocolor --lineart ascii --conky calw}
 ${voffset -10}${font Droid Sans Mono:size=9:bold}$color3${execi 300 gcalcli --nocolor --lineart ascii --conky agenda}
 
 ${color4}${font xirod:Bold:size=10}News ${hr 2}$font$color

@@ -7,8 +7,8 @@ function run {
   fi
 }
 
-#run "megasync"
 run "/usr/bin/xscreensaver -no-splash"
+run "/usr/bin/megasync"
 run "/usr/bin/dropbox"
 run "insync start"
 run "compton"
