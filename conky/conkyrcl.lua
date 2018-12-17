@@ -83,7 +83,7 @@ ${goto 340}${font Play Mono:size=8}${color2}VIDEO: ${alignr 10}${color3}${nvidia
 ${goto 340}${font Play Mono:size=8}${color2}PCIe: ${alignr 10}${color3}${nvidia pcieutil}%
 ${image /home/msjche/.config/awesome/conky/play.png -p 10,266 -s 30x30 }
 ${voffset -40}${goto 45}${font Michroma:size=12:style=normal}${color6}Google Music Player
-${voffset 5}${goto 170}${font Play Mono:size=10}${color1}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.title'}
+${voffset 5}${goto 170}${font Play Mono:size=10}${color4}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.title'}
 ${voffset 2}${goto 170}${font Play Mono:size=8}${color2}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.artist'}
 ${voffset 0}${goto 170}${font Play Mono:size=7}${color3}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.album'}
 ${voffset 3}${goto 170}${font Play Mono:size=8}${color3}${execbar 5,260 "$HOME/.config/awesome/conky/gplay.py"}
