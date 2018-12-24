@@ -23,7 +23,7 @@ conky.config = {
 	gap_y = 33,
 	minimum_width = 477, 
 	maximum_width = 477,
-	minimum_height = 900,
+	minimum_height = 2200,
 
 	own_window = true,
 	own_window_type = 'desktop',
@@ -37,8 +37,8 @@ conky.config = {
 	alignment = 'top_right',
 
 	own_window_transparent = false,
-	own_window_argb_value = 100,
-	own_window_color = '#000000', 
+	own_window_argb_value = 90,
+	--own_window_color = '#000000', 
 
 	draw_shades = false,
 	draw_outline = false,

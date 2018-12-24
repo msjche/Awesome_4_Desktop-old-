@@ -21,7 +21,7 @@ theme.taglist_font 				= "Xirod 15"
 theme.fg_normal                                 = "#BBBBBB"
 theme.fg_focus                                  = "#BBBBBB"
 --theme.bg_normal                                 = "#111111"
-theme.bg_normal                                 = "#11111199"
+theme.bg_normal                                 = "#11111180"
 theme.bg_focus                                  = "#111111"
 theme.fg_urgent                                 = "#000000"
 theme.bg_urgent                                 = "#FFFFFF"
@@ -354,7 +354,7 @@ function theme.at_screen_connect(s)
             first,
             bar_spr,
             s.mytaglist,
-	    mylauncher,
+	    	mylauncher,
             bar_spr,
             first,
             s.mypromptbox,
@@ -374,8 +374,8 @@ function theme.at_screen_connect(s)
             --fsicon,
             --fswidget,
             bar_spr,
-	    --gpmdp.widget,
-	    volicon,
+	    	--gpmdp.widget,
+	    	volicon,
             volumewidget,
             bar_spr,
             mytextclock,
