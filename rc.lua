@@ -12,7 +12,7 @@ local ipairs, string, os, table, tostring, tonumber, type = ipairs, string, os, 
 
 local gears         	= require("gears")
 local awful         	= require("awful")
-			  require("awful.autofocus")
+			  			  require("awful.autofocus")
 local wibox         	= require("wibox")
 local beautiful     	= require("beautiful")
 local naughty       	= require("naughty")
@@ -20,7 +20,7 @@ local lain          	= require("lain")
 local menubar       	= require("menubar")
 local freedesktop   	= require("freedesktop")
 local hotkeys_popup 	= require("awful.hotkeys_popup").widget
-local gpmdp 		= require("widgets.gpmdp")
+local gpmdp 			= require("widgets.gpmdp")
 -- }}}
 
 -- {{{ Error handling

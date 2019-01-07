@@ -7,6 +7,7 @@ function run {
   fi
 }
 
+#run '/usr/bin/xautolock -time 180 "systemctl suspend"'
 run "/usr/bin/xscreensaver -no-splash"
 run "/usr/bin/megasync"
 run "/usr/bin/dropbox"
