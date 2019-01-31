@@ -72,15 +72,16 @@ ${image /home/msjche/.config/awesome/conky/arch.png -p 0,0 -s 440x140 }
 ${voffset 55}${alignr 35}${font Play:size=14:style=bold}${color4}$kernel
 ${voffset -10}${goto 200}${font Play:size=10:style=normal}${color2}Uptime: ${alignr 35}${font Play:size=11:style=bold}${color1}$uptime
 ${voffset 20}${goto 50}${font Michroma:size=12:style=normal}${color2}System Updates
-${goto 10}${font Play Mono:size=10}${color2}Pacman:	${alignr 150}${color4}${font Play Mono:size=10:bold}${execp checkupdates | awk 'END { print (NR == 0 ? "System up to date" : NR " package" (NR > 1 ? "s" : "")); }'}
+#${goto 10}${font Play Mono:size=10}${color2}Pacman:	${alignr 150}${color4}${font Play Mono:size=10:bold}${execp checkupdates | awk 'END { print (NR == 0 ? "System up to date" : NR " package" (NR > 1 ? "s" : "")); }'}
+${goto 10}${font Play Mono:size=10}${color2}Official:	${alignr 150}${color4}${font Play Mono:size=10:bold}${execp cat /tmp/off.updates | wc -l}$color
 ${goto 10}${font Play Mono:size=10}${color2}AUR:	${alignr 150}${color4}${font Play Mono:size=10:bold}${execp cat /tmp/aur.updates | wc -l}$color
 ${goto 10}${font Play Mono:size=10}${color2}Updated:	${alignr 150}${color2}${font Play Mono:size=8:normal}${execp date --date=$(expac --timefmt='%Y-%m-%d %T' '%l\t%n' | sort | tail -n 1 | awk '{print $1 "T" $2}')}$color
 # NVIDIA
-${image /home/msjche/.config/awesome/conky/NVIDIA.png -p 350,160 -s 73x73 }
-${voffset -25}${goto 340}${font Play Mono:size=8}${color2}GPU: ${alignr 10}${color3}${nvidia gpuutil}%
-${goto 340}${font Play Mono:size=8}${color2}RAM: ${alignr 10}${color3}${nvidia membwutil}%
-${goto 340}${font Play Mono:size=8}${color2}VIDEO: ${alignr 10}${color3}${nvidia videoutil}%
-${goto 340}${font Play Mono:size=8}${color2}PCIe: ${alignr 10}${color3}${nvidia pcieutil}%
+${image /home/msjche/.config/awesome/conky/NVIDIA.png -p 352,160 -s 73x73 }
+${voffset -25}${goto 350}${font Play Mono:size=8}${color2}GPU: ${alignr 15}${color3}${nvidia gpuutil}%
+${goto 350}${font Play Mono:size=8}${color2}RAM: ${alignr 15}${color3}${nvidia membwutil}%
+${goto 350}${font Play Mono:size=8}${color2}VIDEO: ${alignr 15}${color3}${nvidia videoutil}%
+${goto 350}${font Play Mono:size=8}${color2}PCIe: ${alignr 15}${color3}${nvidia pcieutil}%
 ${image /home/msjche/.config/awesome/conky/play.png -p 10,266 -s 30x30 }
 ${voffset -40}${goto 45}${font Michroma:size=12:style=normal}${color6}Google Music Player
 ${voffset 5}${goto 170}${font Play Mono:size=10}${color4}${execp cat "$HOME/.config/Google Play Music Desktop Player/json_store/playback.json" | jq -r '.song.title'}
@@ -114,11 +115,11 @@ ${font Play:normal:bold:size=8}${voffset 3}${goto 108}${color1}RAM ${font Play:n
 ${font Play:normal:bold:size=8}${voffset 40}${goto 10}${color2}Read${color2}${alignr 240}${voffset 0}${diskiograph_read 20,140}
 ${font Play:normal:bold:size=8}${voffset -3}${goto 10}${color3}Write${color3}${alignr 240}${voffset 0}${diskiograph_write 20,140}
 ${font Michroma:bold:size=15}${color4}${alignr 120}${voffset -7} DRIVES
-${voffset -0}${color2}${font Play:normal:size=8}${goto 80}${fs_used_perc /boot}${color2}%${color1}${font Play:normal:size=8}${goto 135}/boot${alignr 127}${color2}${fs_used /boot} / ${color3}${fs_size /boot}
-${voffset 0}${color2}${font Play:normal:size=8}${goto 80}${fs_used_perc /}${color2}%${color1}${font Play:normal:size=8}${goto 135}/${alignr 127}${color2}${fs_used /} / ${color3}${fs_size /}
-${color2}${font Play:normal:size=8}${goto 80}${fs_used_perc /home}${color2}%${color1}${font Play:normal:size=8}${goto 135}/home${alignr 127}${color2}${fs_used /home} / ${color3}${fs_size /home}
-${color2}${font Play:normal:size=8}${goto 80}${fs_used_perc /media/Data}${color2}%${color1}${font Play:normal:size=8}${goto 135}${voffset 0}/media/Data${alignr 127}${color2}${fs_used /media/Data} / ${color3}${fs_size /media/Data}
-${color2}${font Play:normal:size=8}${goto 80}${fs_used_perc /media/Vault}${color2}%${color1}${font Play:normal:size=8}${goto 135}${voffset 0}/media/Vault${alignr 127}${color2}${fs_used /media/Vault} / ${color3}${fs_size /media/Vault}
+${voffset -0}${color2}${font Play:normal:size=8}${goto 80}${fs_used_perc /boot}${color2}%${color1}${font Play:normal:size=8}${goto 125}/boot${alignr 127}${color2}${fs_used /boot} / ${color3}${fs_size /boot}
+${voffset 0}${color2}${font Play:normal:size=8}${goto 80}${fs_used_perc /}${color2}%${color1}${font Play:normal:size=8}${goto 125}/${alignr 127}${color2}${fs_used /} / ${color3}${fs_size /}
+${color2}${font Play:normal:size=8}${goto 80}${fs_used_perc /home}${color2}%${color1}${font Play:normal:size=8}${goto 125}/home${alignr 127}${color2}${fs_used /home} / ${color3}${fs_size /home}
+${color2}${font Play:normal:size=8}${goto 80}${fs_used_perc /media/Data}${color2}%${color1}${font Play:normal:size=8}${goto 125}${voffset 0}/media/Data${alignr 127}${color2}${fs_used /media/Data} / ${color3}${fs_size /media/Data}
+${color2}${font Play:normal:size=8}${goto 80}${fs_used_perc /media/Vault}${color2}%${color1}${font Play:normal:size=8}${goto 125}${voffset 0}/media/Vault${alignr 127}${color2}${fs_used /media/Vault} / ${color3}${fs_size /media/Vault}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset 20}Local IP${alignr 10}${addr eno1}
 #${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${execi 3600 wget -qO - ifconfig.co | sed -e 's/[^[:digit:]\|.]//g'}
 ${color2}${font Play:normal:size=8}${goto 250}${voffset -1}Public IP${alignr 10}${color red}NOPE ;)$color
